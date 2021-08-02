@@ -3,7 +3,7 @@
 ## Preperation
 
 Please Clone this repository and push it up to your own github repository.
-Do **not** clone this repository
+Do **not** fork this repository
 
 ## Challenge
 
@@ -31,7 +31,7 @@ For the development of the scripts you have 4 hours and are allowed to use Googl
 - Supported Languages (No other languages will be accepted):
   - Bash
   - Python 3
-  - Ruby 3
+  - Ruby 2.7
   - Powershell 7
 - You will have to use a MySQL 8.0 database
 
@@ -47,3 +47,33 @@ Please send us:
 We will come back to you asap regarding next steps.
 
 We are looking forward to your submission.
+
+## Test Setup
+
+### Adding your solution
+
+Within `docker-compose.yml` there is a volume mount. Use this to mount your solution into the container by saving your script in the `submissionscript` directory.
+
+### Running the containers
+
+`$ docker compose up -d`
+
+This will create the two containers
+
+`exec_container`
+
+and
+
+`mysql_container`
+
+Required Language dependencies are installed in the `exec_container`, your solution should be invoked on the `exec_container`.
+
+There is a test provided which can be run using;
+
+`$ cd scripts`
+
+`$ pytest`
+
+Any other dependencies you require to complete the Tech test should be added in the script in the root `entrypoint.sh`
+
+**do not delete** `sleep infinity` leave this as the last command in `entrypoint.sh`

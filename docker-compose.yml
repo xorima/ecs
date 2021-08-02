@@ -25,6 +25,7 @@ services:
       MYSQL_PASSWORD: 123456
       MYSQL_DATABASE: devopstt
     restart: on-failure
+    volumes:
+      - ./submissionscript/:/submissionscript/
     depends_on:
       - mysql_db_container
-    # command: ["sleep", "infinity"]
